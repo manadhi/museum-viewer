@@ -1,4 +1,4 @@
-package com.udhipe.musemviewer.data
+package com.udhipe.musemviewer.data.login
 
 /**
  * A generic class that holds a value with its loading status.

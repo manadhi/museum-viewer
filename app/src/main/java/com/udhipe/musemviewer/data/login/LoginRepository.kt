@@ -1,6 +1,6 @@
-package com.udhipe.musemviewer.data
+package com.udhipe.musemviewer.data.login
 
-import com.udhipe.musemviewer.data.model.LoggedInUser
+import com.udhipe.musemviewer.data.login.model.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

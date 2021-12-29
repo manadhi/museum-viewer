@@ -1,4 +1,4 @@
-package com.udhipe.musemviewer.data.model
+package com.udhipe.musemviewer.data.login.model
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

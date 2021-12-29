@@ -1,6 +1,6 @@
-package com.udhipe.musemviewer.data
+package com.udhipe.musemviewer.data.login
 
-import com.udhipe.musemviewer.data.model.LoggedInUser
+import com.udhipe.musemviewer.data.login.model.LoggedInUser
 import java.io.IOException
 
 /**

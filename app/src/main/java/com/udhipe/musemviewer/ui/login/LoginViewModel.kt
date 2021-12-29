@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.udhipe.musemviewer.data.LoginRepository
-import com.udhipe.musemviewer.data.Result
+import com.udhipe.musemviewer.data.login.LoginRepository
+import com.udhipe.musemviewer.data.login.Result
 
 import com.udhipe.musemviewer.R
 

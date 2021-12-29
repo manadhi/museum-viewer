@@ -2,8 +2,8 @@ package com.udhipe.musemviewer.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.udhipe.musemviewer.data.LoginDataSource
-import com.udhipe.musemviewer.data.LoginRepository
+import com.udhipe.musemviewer.data.login.LoginDataSource
+import com.udhipe.musemviewer.data.login.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
