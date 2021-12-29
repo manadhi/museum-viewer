@@ -5,5 +5,6 @@ package com.udhipe.musemviewer.data.login.model
  */
 data class LoggedInUser(
     val userId: String,
-    val displayName: String
+    val userName: String,
+    val password: String
 )

@@ -22,6 +22,9 @@ ext {
     // lifecycle
     lifeCycleVersion = '2.4.0'
 
+    // security
+    securityCryptoVersion = '1.0.0'
+
     // ui
     appCompatVersion = '1.4.0'
     materialVersion = '1.4.0'
