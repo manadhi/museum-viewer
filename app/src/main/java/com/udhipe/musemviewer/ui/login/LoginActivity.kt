@@ -13,11 +13,9 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
-import com.udhipe.musemviewer.BuildConfig
 import com.udhipe.musemviewer.databinding.ActivityLoginBinding
 
 import com.udhipe.musemviewer.R
-import com.udhipe.musemviewer.ui.home.HomeActivity
 import com.udhipe.musemviewer.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {

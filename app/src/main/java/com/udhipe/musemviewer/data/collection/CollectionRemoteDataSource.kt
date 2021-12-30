@@ -14,4 +14,10 @@ class CollectionRemoteDataSource(private val collectionService: CollectionServic
         throw Exception("Sorry, an error occurred while requesting data, status error ${response.code()}")
     }
 
+    suspend fun getSpecificCollection(objectNumber: String): Collection? {
+        val response = collectionService.getCollectionById(objectNumber, apiKey)
+        if (response.isSuccessful) return response.body()?.artObject
+
+        throw Exception("Sorry, an error occurred while requesting data, status error ${response.code()}")
+    }
 }

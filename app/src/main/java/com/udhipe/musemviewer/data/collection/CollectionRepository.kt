@@ -15,7 +15,7 @@ class CollectionRepository {
         return remoteDataSource?.getCollectionList(page)
     }
 
-    fun getCollection(objectNumber: String): Collection? {
-        return null
+    suspend fun getCollection(objectNumber: String): Collection? {
+        return remoteDataSource?.getSpecificCollection(objectNumber)
     }
 }
