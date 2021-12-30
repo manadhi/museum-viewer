@@ -23,6 +23,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "API_KEY", apikeyProperties['API_KEY'])
+        buildConfigField("String", "BASE_URL", "\"https://www.rijksmuseum.nl/api/en/\"")
     }
 
     buildTypes {
@@ -56,6 +57,10 @@ dependencies {
 
     // encrypted shared preferences
     implementation "androidx.security:security-crypto:$securityCryptoVersion"
+
+    // network
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
     // ui
     implementation "androidx.appcompat:appcompat:$appCompatVersion"

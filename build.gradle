@@ -25,6 +25,9 @@ ext {
     // security
     securityCryptoVersion = '1.0.0'
 
+    // network
+    retrofitVersion = '2.6.1'
+
     // ui
     appCompatVersion = '1.4.0'
     materialVersion = '1.4.0'

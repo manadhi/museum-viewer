@@ -1,6 +1,7 @@
 package com.udhipe.musemviewer.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -16,6 +17,7 @@ import com.udhipe.musemviewer.BuildConfig
 import com.udhipe.musemviewer.databinding.ActivityLoginBinding
 
 import com.udhipe.musemviewer.R
+import com.udhipe.musemviewer.ui.home.HomeActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -33,19 +35,22 @@ class LoginActivity : AppCompatActivity() {
         val login = binding.btnLogin
         val loading = binding.loading
 
+        // bypass login
+        login.isEnabled = true
+
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())[LoginViewModel::class.java]
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
 
             // disable login button unless both username / password is valid
-            login?.isEnabled = loginState.isDataValid
+//            login?.isEnabled = loginState.isDataValid
 
             if (loginState.usernameError != null) {
-                username?.error = getString(loginState.usernameError)
+                username.error = getString(loginState.usernameError)
             }
             if (loginState.passwordError != null) {
-                password?.error = getString(loginState.passwordError)
+                password.error = getString(loginState.passwordError)
             }
         })
 
@@ -91,10 +96,14 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            login?.setOnClickListener {
-                loading.visibility = View.VISIBLE
-                loginViewModel.login(username?.text.toString(), password.text.toString())
-            }
+//            login?.setOnClickListener {
+//                loading.visibility = View.VISIBLE
+//                loginViewModel.login(username?.text.toString(), password.text.toString())
+//            }
+        }
+
+        login?.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
         }
     }
 
