@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +16,8 @@ import com.udhipe.musemviewer.databinding.ActivityHomeBinding
 import com.udhipe.musemviewer.ui.detail.DetailActivity
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     private val viewModel: HomeViewModel by viewModels {
         HomeViewModelFactory(CollectionRepository.instance)
@@ -34,6 +38,12 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         homeBinding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(homeBinding.root)
+
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+//        actionBarDrawerToggle =
+//            ActionBarDrawerToggle(this@HomeActivity, R.string.open, R.string.close)
 
         setAdapter()
 

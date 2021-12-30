@@ -11,8 +11,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_collection"
-        android:layout_width="@dimen/dimen_very_large"
-        android:layout_height="@dimen/dimen_very_large"
+        android:layout_width="@dimen/dimen_very_large_2x"
+        android:layout_height="@dimen/dimen_very_large_2x"
         tools:src="@color/magenta" />
 
     <TextView

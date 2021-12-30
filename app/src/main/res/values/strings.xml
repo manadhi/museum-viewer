@@ -14,4 +14,10 @@
     <string name="no_account">Don\'t have account ?</string>
     <string name="agree_terms_and_conditions">I Agree with Terms and Conditions</string>
     <string name="logout">Logout</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
 </resources>

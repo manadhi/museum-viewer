@@ -18,6 +18,7 @@ import com.udhipe.musemviewer.databinding.ActivityLoginBinding
 
 import com.udhipe.musemviewer.R
 import com.udhipe.musemviewer.ui.home.HomeActivity
+import com.udhipe.musemviewer.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -103,7 +104,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         login?.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         }
     }
 

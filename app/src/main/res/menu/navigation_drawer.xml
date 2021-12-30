@@ -6,13 +6,12 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/home"
-            android:checked="true"
             android:icon="@drawable/ic_home_black"
-            android:title="Home" />
+            android:title="@string/home" />
         <item
             android:id="@+id/profile"
             android:icon="@drawable/ic_person_black"
-            android:title="Profile" />
+            android:title="@string/profile" />
     </group>
 
 </menu>

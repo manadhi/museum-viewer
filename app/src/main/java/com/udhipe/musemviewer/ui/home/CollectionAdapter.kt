@@ -43,7 +43,8 @@ class CollectionAdapter(private val onItemClickCallback: OnItemClickCallback) :
         fun bindItem(collection: Collection) {
             with(binding) {
                 Glide.with(itemView.context)
-                    .load(collection.webImage)
+                    .load(collection.webImage.url)
+                    .centerCrop()
                     .placeholder(R.color.magenta)
                     .into(imgCollection)
 
