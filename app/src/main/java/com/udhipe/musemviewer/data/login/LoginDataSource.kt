@@ -1,25 +1,39 @@
 package com.udhipe.musemviewer.data.login
 
-import com.udhipe.musemviewer.data.login.model.LoggedInUser
-import java.io.IOException
+import com.udhipe.musemviewer.data.SharedPreferencesManager
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
 class LoginDataSource {
+    private val sharedPreferencesManager = SharedPreferencesManager.instance
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
-/*        try {
-            // TODO: handle loggedInUser authentication
-            val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
-            return Result.Success(fakeUser)
-        } catch (e: Throwable) {
-            return Result.Error(IOException("Error logging in", e))
-        }*/
-        return Result.Error(IOException("Error logging in"))
+    fun checkSession(username: String): Boolean {
+        val userName = sharedPreferencesManager.readSessionData()
+        var isSessionExist = false
+
+        if (userName != "") {
+            isSessionExist = true
+        }
+
+        return isSessionExist
+    }
+
+    fun login(username: String, password: String): Boolean {
+        var result = false
+        val savedUser = sharedPreferencesManager.readData(username)
+
+        if (savedUser != null) {
+            if (savedUser.password == password) {
+                sharedPreferencesManager.writeSessionData(username)
+                result = true
+            }
+        }
+
+        return result
     }
 
     fun logout() {
-        // TODO: revoke authentication
+        sharedPreferencesManager.removeSessionData()
     }
 }

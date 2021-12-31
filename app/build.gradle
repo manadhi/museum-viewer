@@ -55,6 +55,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
 
+    // json
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
     // encrypted shared preferences
     implementation "androidx.security:security-crypto:$securityCryptoVersion"
 

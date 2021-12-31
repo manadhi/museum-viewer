@@ -22,6 +22,9 @@ ext {
     // lifecycle
     lifeCycleVersion = '2.4.0'
 
+    // json
+    gsonVersion = '2.8.8'
+
     // security
     securityCryptoVersion = '1.0.0'
 

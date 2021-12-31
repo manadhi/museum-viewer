@@ -3,30 +3,29 @@ package com.udhipe.musemviewer.ui.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import android.util.Patterns
 import com.udhipe.musemviewer.data.login.LoginRepository
-import com.udhipe.musemviewer.data.login.Result
 
 import com.udhipe.musemviewer.R
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
-    private val _loginForm = MutableLiveData<LoginFormState>()
-    val loginFormState: LiveData<LoginFormState> = _loginForm
+//    private val _loginForm = MutableLiveData<LoginFormState>()
+//    val loginFormState: LiveData<LoginFormState> = _loginForm
 
-    private val _loginResult = MutableLiveData<LoginResult>()
-    val loginResult: LiveData<LoginResult> = _loginResult
+    private val _loginResult = MutableLiveData<Boolean>()
+    val loginResult: LiveData<Boolean> = _loginResult
 
-    fun login(username: String, password: String) {
-        // can be launched in a separate asynchronous job
+    private val _loginForm = MutableLiveData<LoginFormState>().apply {
+        value = LoginFormState()
+    }
+    val loginFormState: LiveData<LoginFormState>
+        get() = _loginForm
+
+    fun login(username: String, password: String): Boolean {
+//        loginResult.value =loginRepository.login(username, password)
         val result = loginRepository.login(username, password)
-
-        if (result is Result.Success) {
-            _loginResult.value =
-                LoginResult(success = LoggedInUserView(displayName = result.data.userName))
-        } else {
-            _loginResult.value = LoginResult(error = R.string.login_failed)
-        }
+        _loginResult.value = result
+        return result
     }
 
     fun loginDataChanged(username: String, password: String) {
@@ -39,16 +38,10 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
         }
     }
 
-    // A placeholder username validation check
     private fun isUserNameValid(username: String): Boolean {
-        return if (username.contains('@')) {
-            Patterns.EMAIL_ADDRESS.matcher(username).matches()
-        } else {
-            username.isNotBlank()
-        }
+        return username.length > 2
     }
 
-    // A placeholder password validation check
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
     }

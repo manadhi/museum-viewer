@@ -10,7 +10,7 @@ import com.udhipe.musemviewer.data.login.model.LoggedInUser
 class LoginRepository(val dataSource: LoginDataSource) {
 
     // in-memory cache of the loggedInUser object
-    var user: LoggedInUser? = null
+    var user: String? = null
         private set
 
     val isLoggedIn: Boolean
@@ -22,23 +22,24 @@ class LoginRepository(val dataSource: LoginDataSource) {
         user = null
     }
 
+    // okay
     fun logout() {
         user = null
         dataSource.logout()
     }
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
+    fun login(username: String, password: String): Boolean {
         // handle login
         val result = dataSource.login(username, password)
 
-        if (result is Result.Success) {
-            setLoggedInUser(result.data)
+        if (result) {
+            setLoggedInUser(username)
         }
 
         return result
     }
 
-    private fun setLoggedInUser(loggedInUser: LoggedInUser) {
+    private fun setLoggedInUser(loggedInUser: String) {
         this.user = loggedInUser
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
